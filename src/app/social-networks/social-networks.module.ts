@@ -7,18 +7,27 @@ import { ControlPanelHeaderComponent } from './control-panel-header/control-pane
 import { MaterialModule } from '../shared/material.module';
 import { TwitterPanelComponent } from './twitter-panel/twitter-panel.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SocialNetworksService } from './services/social-networks.service';
 
 @NgModule({
   imports: [
     CommonModule,
     SocialNetworksRoutingModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   declarations: [
-      ControlPanelComponent,
-      ControlPanelHeaderComponent,
-      TwitterPanelComponent
+    ControlPanelComponent,
+    ControlPanelHeaderComponent,
+    TwitterPanelComponent
+  ],
+  exports: [
+    TwitterPanelComponent
+  ],
+  providers: [
+    SocialNetworksService
   ]
 })
 export class SocialNetworksModule { }

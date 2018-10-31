@@ -7,8 +7,60 @@
             <mat-card-subtitle>Agenda de contactos</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content class="twitter-panel-card-container">
+            <!-- FORMULARIO DE ALTA DE NOTIFICACION -->
 
+
+
+            <form [formGroup]="formTwitter" fxLayout="row wrap" (ngSubmit)="sendTwitterConfiguration(formTwitter)">
+
+
+                    <!--TITULO -->
+                    <mat-form-field fxFlex="100">
+                            <mat-label>API key</mat-label>
+                            <input matInput  formControlName="consumerApiKey">
+                            <!--<mat-error *ngIf="newsForm.controls['title'].invalid && newsForm.controls['title'].touched">
+                                <span *ngIf="newsForm.controls['title'].errors.required">{{errors.title.required}}</span>
+                            </mat-error>-->
+                        </mat-form-field>
+             
+                        <!-- DESCRIPCION -->
+                        <mat-form-field fxFlex="100">
+                            <mat-label>API Secret Key</mat-label>
+                            <input matInput  formControlName="consumerApiSecretKey">
+                      
+
+                            <!--<mat-error *ngIf="newsForm.controls['description'].invalid && newsForm.controls['description'].touched">
+                                <span *ngIf="newsForm.controls['description'].errors.required">{{errors.description.required}}</span>
+                            </mat-error>-->
+                        </mat-form-field>
+             
+                        <!-- TIPO DE ALERTA -->
+                        <mat-form-field fxFlex="100">
+                            <mat-label>Access Token </mat-label>
+                            <input matInput  formControlName="accessToken">
+                            <!--<mat-select [(value)]="selNew" tabindex="3" formControlName="typeAlert">
+                                <mat-option *ngFor="let aNew of listNews" [value]="aNew.id">{{aNew.tipo}}</mat-option>
+                            </mat-select>-->
+                        </mat-form-field>
+                        
+
+                        <mat-form-field fxFlex="100">
+                                <mat-label>Access Secret Token </mat-label>
+                                <input matInput  formControlName="accessSecretToken">
+                                <!--<mat-select [(value)]="selNew" tabindex="3" formControlName="typeAlert">
+                                    <mat-option *ngFor="let aNew of listNews" [value]="aNew.id">{{aNew.tipo}}</mat-option>
+                                </mat-select>-->
+                            </mat-form-field>
+         
+                    <!-- BUTTON INGRESAR -->
+                    <div fxFlex="100" fxLayoutAlign="center center">
+                        <button mat-raised-button>ENVIAR</button>
+                    </div>
+                </form>
            
+
+
+
 
         </mat-card-content>
     </mat-card>
