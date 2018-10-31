@@ -7,7 +7,10 @@ const routes: Routes = [
     {
         path: '', component: ControlPanelComponent,
         children: [
-            { path: '', component: TwitterPanelComponent }
+            { path: '', component: TwitterPanelComponent },
+            { path: 'facebook', component: TwitterPanelComponent },
+            { path: 'whatsapp', component: TwitterPanelComponent },
+            { path: 'email', component: TwitterPanelComponent }
         ]
     }
 ];

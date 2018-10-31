@@ -1,7 +1,13 @@
 <div class="control-panel">
     <al-control-panel-header></al-control-panel-header>
     <mat-drawer-container class="contenedor">
-        <mat-drawer class="sidenav" mode="side" opened>Drawer content</mat-drawer>
+        <mat-drawer class="sidenav" mode="side" opened>
+            <mat-nav-list>
+                <mat-list-item *ngFor="let link of links" [routerLink]="link.path">
+                    <a matLine>{{ link.name }}</a>
+                </mat-list-item>
+            </mat-nav-list>
+        </mat-drawer>
         <mat-drawer-content class="contenedor-sidenav">
             <router-outlet></router-outlet>
         </mat-drawer-content>
