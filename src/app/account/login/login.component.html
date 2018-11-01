@@ -18,8 +18,8 @@
                 <mat-form-field fxFlex>
                     <mat-label>Usuario</mat-label>
                     <input matInput formControlName="username" placeholder="Ingresar usuario" tabindex="1">
-                    <mat-error *ngIf="loginForm.controls.username.invalid && loginForm.controls.username.touched">
-                        <span *ngIf="loginForm.controls.username.errors.required">{{errors.username.required}}</span>
+                    <mat-error *ngIf="loginForm.controls['username'].invalid && loginForm.controls['username'].touched">
+                        <span *ngIf="loginForm.controls['username'].errors.required">{{errors.username.required}}</span>
                     </mat-error>
                 </mat-form-field>
                 <!-- PASSWORD -->

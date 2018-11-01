@@ -27,9 +27,11 @@ export class TwitterPanelComponent implements OnInit {
             accessSecretToken: ['', [Validators.required]]
         });
 
-        this.socialNetworkService.getTwitterConfiguration().subscribe((response: Configuration) => {
-            const twitter = JSON.parse(response.config);
-            this.initializeTwitterConfigurationForm(twitter);
+        this.socialNetworkService.getConfiguration('twitter').subscribe((response: Configuration) => {
+            if (response.config) {
+                const twitter = JSON.parse(response.config);
+                this.initializeTwitterConfigurationForm(twitter);
+            }
         }, error => this.initializeTwitterConfigurationForm());
     }
 
@@ -42,11 +44,11 @@ export class TwitterPanelComponent implements OnInit {
      * @param twitter configuracion de twitter
      */
     initializeTwitterConfigurationForm(twitter?: any) {
-        this.formTwitter.patchValue({
-            consumerApiKey: twitter ? twitter.consumerAp : '',
-            consumerApiSecretKey: twitter ? twitter.consumerApiSecre : '',
-            accessToken: twitter ? twitter.acces : '',
-            accessSecretToken: twitter ? twitter.accessSecre : ''
+        this.formTwitter.setValue({
+            consumerApiKey: twitter ? twitter.consumerApiKey : '',
+            consumerApiSecretKey: twitter ? twitter.consumerApiSecretKey : '',
+            accessToken: twitter ? twitter.accessToken : '',
+            accessSecretToken: twitter ? twitter.accessSecretToken : ''
         });
     }
 
@@ -60,13 +62,13 @@ export class TwitterPanelComponent implements OnInit {
                 id: null,
                 type: 'twitter',
                 config: JsonCircularParser({
-                    apiKey: formTwitter.controls.consumerApiKey.value,
-                    apiSecretKey: formTwitter.controls.consumerApiSecretKey.value,
+                    consumerApiKey: formTwitter.controls.consumerApiKey.value,
+                    consumerApiSecretKey: formTwitter.controls.consumerApiSecretKey.value,
                     accessToken: formTwitter.controls.accessToken.value,
                     accessSecretToken: formTwitter.controls.accessSecretToken.value
                 })
             };
-            this.socialNetworkService.postTwitterConfiguration(config).subscribe((response: any) => {
+            this.socialNetworkService.postConfiguration(config).subscribe((response: any) => {
                 this.notificationService.showNotification('Exito', response, 'Success');
             }, (error: any) => {
                 this.notificationService.showNotification('Error', error, 'Error');

@@ -12,7 +12,10 @@ import { AuthInterceptor } from './shared/authentication/auth.interceptor';
 import { AccountModule } from './account/account.module';
 import { AuthGuard } from './shared/authentication/auth.guard';
 export function tokenGetter() {
-    return localStorage.getItem('jwt');
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
+        return JSON.parse(jwt).data;
+    }
 }
 
 @NgModule({
@@ -29,7 +32,7 @@ export function tokenGetter() {
         }),
         JwtModule.forRoot({
             config: {
-                tokenGetter: tokenGetter                ,
+                tokenGetter: tokenGetter,
                 whitelistedDomains: ['/api-alert/email/**'],
                 blacklistedRoutes: ['/api-alert/auth/**']
             }
