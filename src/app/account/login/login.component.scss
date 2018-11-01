@@ -1,0 +1,23 @@
+.login {
+    height: 100vh;
+    background: #a1c9dc;
+
+    .login-action {
+        .material-icons.md-80 {
+            font-size: 80px;
+        }
+
+        mat-card-header {
+            ::ng-deep .mat-card-header-text {
+                text-align: center;
+                margin: auto !important;
+            }
+        }
+
+        .actions {
+            text-align: right;
+            margin-right: 0;
+            margin-bottom: 0;
+        }
+    }
+}

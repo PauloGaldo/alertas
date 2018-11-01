@@ -9,6 +9,7 @@ import { TwitterPanelComponent } from './twitter-panel/twitter-panel.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SocialNetworksService } from './services/social-networks.service';
+import { AuthGuard } from '../shared/authentication/auth.guard';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { SocialNetworksService } from './services/social-networks.service';
     TwitterPanelComponent
   ],
   providers: [
-    SocialNetworksService
+    SocialNetworksService,
+    AuthGuard
   ]
 })
 export class SocialNetworksModule { }
