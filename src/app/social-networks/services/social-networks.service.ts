@@ -1,13 +1,27 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Configuration } from '../models/configuration.model';
 
 @Injectable()
 export class SocialNetworksService {
 
-  constructor() { }
+    constructor(private http: HttpClient) { }
 
 
-  showDataTwitter(twiterData: any) {
+    /**
+     * Funcion para obtener configuracion de twitter
+     */
+    getTwitterConfiguration(): Observable<Configuration> {
+        return this.http.get<Configuration>('api-alert/twitter');
+    }
 
-    console.log(twiterData);
-  }
+    /**
+     * Funcion para guardar configuracion de twitter
+     * @param twitter configuracion de twitter
+     */
+    postTwitterConfiguration(twitter: Configuration): Observable<Configuration> {
+        return this.http.post<Configuration>('api-alert/twitter', twitter);
+    }
+    
 }
