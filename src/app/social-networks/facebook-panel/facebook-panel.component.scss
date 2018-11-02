@@ -1,0 +1,15 @@
+.facebook-panel {
+    height: calc(100vh - 64px);
+    .facebook-panel-card {
+        height: 90%;
+        mat-card-header {
+            ::ng-deep .mat-card-header-text {
+                text-align: center;
+                margin: auto !important;
+            }
+        }
+        .facebook-panel-card-container {
+            height: 90%;
+        }
+    }
+}

@@ -1,0 +1,54 @@
+<div class="facebook-panel" fxLayout="row wrap" fxFlex="100" fxLayoutAlign="center center">
+    <mat-card  class="facebook-panel-card" fxFlex="90">
+        <mat-card-header>
+            <mat-card-title>
+                <h4>Configuración Facebook</h4>
+            </mat-card-title>
+            <mat-card-subtitle>Agenda de contactos</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="facebook-panel-card-container">
+        
+            <form [formGroup]="formFacebook" fxLayout="row wrap" (ngSubmit)="sendTwitterConfiguration(formFacebook)">
+               
+                <mat-form-field fxFlex="100">
+                    <mat-label>Connection Folder Feed</mat-label>
+                    <input matInput  formControlName="connectionFolderFeed">
+
+                </mat-form-field>
+     
+         
+                <mat-form-field fxFlex="100">
+                    <mat-label>Connection Folder Images</mat-label>
+                    <input matInput  formControlName="connectionFolderImages">
+                </mat-form-field>
+     
+ 
+                <mat-form-field fxFlex="100">
+                    <mat-label>Connection Folder Videos </mat-label>
+                    <input matInput  formControlName="connectionFolderVideos">
+
+                </mat-form-field>
+
+                <mat-form-field fxFlex="100">
+                        <mat-label>Security Key </mat-label>
+                        <input matInput  formControlName="securityKey">
+
+                </mat-form-field>
+
+     
+
+
+
+
+
+
+
+                <div fxFlex="100" fxLayoutAlign="center center">
+                    <button mat-raised-button>ENVIAR</button>
+                </div>
+         </form> 
+
+      
+        </mat-card-content>
+    </mat-card>
+  </div>

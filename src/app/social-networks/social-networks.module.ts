@@ -10,6 +10,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SocialNetworksService } from './services/social-networks.service';
 import { AuthGuard } from '../shared/authentication/auth.guard';
+import { FacebookPanelComponent } from './facebook-panel/facebook-panel.component';
 
 @NgModule({
   imports: [
@@ -22,10 +23,12 @@ import { AuthGuard } from '../shared/authentication/auth.guard';
   declarations: [
     ControlPanelComponent,
     ControlPanelHeaderComponent,
-    TwitterPanelComponent
+    TwitterPanelComponent,
+    FacebookPanelComponent
   ],
   exports: [
-    TwitterPanelComponent
+    TwitterPanelComponent,
+    FacebookPanelComponent
   ],
   providers: [
     SocialNetworksService,

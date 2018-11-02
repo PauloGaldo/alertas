@@ -11,6 +11,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './shared/authentication/auth.interceptor';
 import { AccountModule } from './account/account.module';
 import { AuthGuard } from './shared/authentication/auth.guard';
+import { FacebookPanelComponent } from './social-networks/facebook-panel/facebook-panel.component';
 export function tokenGetter() {
     const jwt = localStorage.getItem('jwt');
     if (jwt) {
@@ -20,7 +21,7 @@ export function tokenGetter() {
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
     ],
     imports: [
         BrowserModule,
